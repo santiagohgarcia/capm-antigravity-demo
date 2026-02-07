@@ -1,51 +1,27 @@
-# Bookshop Application Documentation
+# Bookshop Application - Functional Overview
 
-## Application Summary
-The Bookshop application is a CAP (Cloud Application Programming) project with a SAPUI5 frontend. It manages a catalog of books.
+## 1. Overview
+The **Bookshop** application is a digital catalog used to browse and view available books. It provides a simple, user-friendly interface to checking the library's current inventory.
 
-### Data Model
-- **Namespace**: `my.bookshop`
-- **Entities**:
-    - `Books`: Represents a book in the catalog.
-        - `ID`: Integer (Key)
-        - `title`: String
-        - `author`: String
-        - `stock`: Integer
+## 2. Key Features
 
-### Services
-- **CatalogService**: Exposes the `Books` entity as a read-only projection.
+### 2.1 Browse Catalog
+Users can access a complete list of all books in the system. The catalog is presented in a clean, scrollable list format.
 
-### User Interface
-- **Bookshop UI**: A SAPUI5 application that displays a list of books.
-    - **Route**: `RouteBooks` (default)
-    - **View**: `Books.view.xml`
-    - **Features**:
-        - Dynamic Page layout.
-        - List of books displaying title, stock, author, and ID.
+### 2.2 View Book Details
+For every book in the list, the following information is immediately available:
+*   **Title**: The name of the book.
+*   **Author**: The writer of the book.
+*   **Stock Level**: The number of physical copies currently available (e.g., "12 pcs").
+*   **ID**: The unique reference number for the book.
 
----
+## 3. Accessing the Application
+The application is web-based and can be accessed via a standard browser.
+*   **Application URL**: `http://localhost:4004/bookshopui/webapp/index.html`
 
-## Browser Agent Testing Guide
+## 4. Technical Summary
+*For system administrators and developers.*
 
-### Prerequisites
-- The application must be running.
-- The Browser Agent should start at the root URL of the UI application (e.g., `http://localhost:4004/bookshopui/webapp/index.html`).
-
-### Test Scenario 1: Verify Application Load and Data Display
-1. **Navigate to the application URL.**
-2. **Verify the page title**:
-    - Check if the title "Catalog" is visible (based on localization `i18n>title`).
-3. **Verify the list of books**:
-    - Check for the existence of a list item.
-    - Verify that at least one book entry is displayed with:
-        - Title (e.g., "Wuthering Heights")
-        - Author (e.g., "Emily Brontë")
-        - Stock (e.g., "12 pcs")
-4. **Action**:
-    - Click on a list item to ensure it is interactive (even if no navigation is configured yet).
-
-### detailed-steps
-1. `open_browser_url(url="http://localhost:4004/bookshopui/webapp/index.html")`
-2. `check_element_exists(selector="span[id$='-title-inner']")` (Matches the title in the dynamic page header)
-3. `check_element_exists(selector=".sapMObjLItem")` (Matches an Object List Item)
-4. `get_element_text(selector=".sapMObjLItemTitle")` (To verify book title presence)
+*   **Platform**: SAP Cloud Application Programming Model (CAP).
+*   **Interface**: SAPUI5 (Fiori) Web Application.
+*   **Data Source**: Real-time connection to the central Bookshop database via OData V4.
