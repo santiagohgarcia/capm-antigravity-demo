@@ -11,7 +11,7 @@
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-            <List items="{/Books}">
+            <List id="booksList" items="{/Books}">
                 <ObjectListItem
                     title="{title}"
                     number="{stock}"

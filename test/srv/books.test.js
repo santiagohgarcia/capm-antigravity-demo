@@ -2,8 +2,9 @@
 const cds = require('@sap/cds')
 const { expect } = require('chai')
 
+const { GET } = cds.test(__dirname + '/../..')
+
 describe('Bookshop Service', () => {
-    const { GET } = cds.test('serve', '--in-memory', '--project', __dirname + '/..')
 
     it('should return 4 books with all fields', async () => {
         const { data } = await GET('/odata/v4/catalog/Books')
