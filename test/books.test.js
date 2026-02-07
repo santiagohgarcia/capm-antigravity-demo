@@ -5,8 +5,15 @@ const { expect } = require('chai')
 describe('Bookshop Service', () => {
     const { GET } = cds.test('serve', '--in-memory', '--project', __dirname + '/..')
 
-    it('should return 4 books', async () => {
+    it('should return 4 books with all fields', async () => {
         const { data } = await GET('/odata/v4/catalog/Books')
         expect(data.value).to.have.lengthOf(4)
+        data.value.forEach(book => {
+            expect(book).to.have.property('ID')
+            expect(book).to.have.property('title')
+            expect(book).to.have.property('author')
+            expect(book).to.have.property('stock')
+            expect(book).to.have.property('pages')
+        })
     })
 })

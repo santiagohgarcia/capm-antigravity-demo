@@ -1,5 +1,5 @@
-ID,title,author,stock
-1,Wuthering Heights,Emily Brontë,100
-2,Jane Eyre,Charlotte Brontë,500
-3,Pride and Prejudice,Jane Austen,200
-4,Little Women,Louisa May Alcott,300
+ID,title,author,stock,pages
+1,Wuthering Heights,Emily Brontë,100,342
+2,Jane Eyre,Charlotte Brontë,500,532
+3,Pride and Prejudice,Jane Austen,200,432
+4,Little Women,Louisa May Alcott,300,759

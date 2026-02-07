@@ -13,6 +13,7 @@ For every book in the list, the following information is immediately available:
 *   **Title**: The name of the book.
 *   **Author**: The writer of the book.
 *   **Stock Level**: The number of physical copies currently available (e.g., "12 pcs").
+*   **Pages**: The number of pages in the book.
 *   **ID**: The unique reference number for the book.
 
 ## 3. Accessing the Application

@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "cds-serve",
+    "test": "mocha",
     "watch-bookshopui": "cds watch --open bookshopui/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "private": true
