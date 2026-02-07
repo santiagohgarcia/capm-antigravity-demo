@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "test:srv": "mocha ./test/srv/books.test.js",
-    "test:e2e": "wdio run ./test/e2e/wdio.conf.js"
+    "test": "wdio run ./test/wdio.conf.js",
+    "test:headless": "wdio run ./test/wdio.conf.js --headless"
   },
   "private": true
 }

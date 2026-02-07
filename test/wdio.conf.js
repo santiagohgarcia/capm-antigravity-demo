@@ -177,31 +177,29 @@ exports.config = {
     onPrepare: async function (config, capabilities) {
         const { spawn } = require("child_process");
         const waitOn = require("wait-on");
+        const killPort = require("kill-port");
 
         try {
-            // 1. Check if the port is already alive
-            await waitOn({
-                resources: ["tcp:4004"],
-                timeout: 500 // Very short wait to see if it's already up
-            });
-            console.log("Port 4004 is already active. Skipping CDS server start.");
-            return; // Exit the function early
-        } catch (err) {
-            // 2. If it timed out, it means the port is free. Start the server.
-            console.log("Port 4004 is free. Starting CDS server...");
-
-            global.cdsServer = spawn("npm", ["start"], {
-                cwd: process.cwd(),
-                shell: true,
-                stdio: "inherit"
-            });
-
-            // 3. Wait for the newly spawned server to actually become ready
-            return waitOn({
-                resources: ["tcp:4004"],
-                timeout: 10000
-            });
+            await killPort(4004);
+        } catch (error) {
+            console.log("Port 4004 is already free.");
         }
+
+        // 2. If it timed out, it means the port is free. Start the server.
+        console.log("Port 4004 is free. Starting CDS server...");
+
+        global.cdsServer = spawn("npm", ["start"], {
+            cwd: process.cwd(),
+            shell: true,
+            stdio: "inherit"
+        });
+
+        // 3. Wait for the newly spawned server to actually become ready
+        return waitOn({
+            resources: ["tcp:4004"],
+            timeout: 10000
+        });
+
     },
 
     onComplete: function (exitCode, config, capabilities, results) {
@@ -210,6 +208,7 @@ exports.config = {
             global.cdsServer.kill()
         }
     },
+
     /**
      * Gets executed when a refresh happens.
      * @param {String} oldSessionId session ID of the old session
