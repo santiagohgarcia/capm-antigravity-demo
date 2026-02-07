@@ -182,7 +182,7 @@ exports.config = {
         try {
             await killPort(4004);
         } catch (error) {
-            console.log("Port 4004 is already free.");
+            console.log("Port 4004 is free.");
         }
 
         // 2. If it timed out, it means the port is free. Start the server.
@@ -202,11 +202,10 @@ exports.config = {
 
     },
 
-    onComplete: function (exitCode, config, capabilities, results) {
-        if (global.cdsServer) {
-            console.log("Stopping CDS server...")
-            global.cdsServer.kill()
-        }
+    onComplete: async function () {
+        const killPort = require("kill-port");
+        await killPort(4004);
+        console.log("Port 4004 is free.");
     },
 
     /**
