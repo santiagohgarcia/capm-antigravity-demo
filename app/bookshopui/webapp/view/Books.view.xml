@@ -19,6 +19,7 @@
                     type="Active">
                     <attributes>
                         <ObjectAttribute text="ID: {ID}" />
+                        <ObjectAttribute text="Author: {author}" />
                     </attributes>
                 </ObjectListItem>
             </List>
