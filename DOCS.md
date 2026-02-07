@@ -15,6 +15,7 @@ For every book in the list, the following information is immediately available:
 *   **Stock Level**: The number of physical copies currently available (e.g., "12 pcs").
 *   **Pages**: The number of pages in the book.
 *   **ID**: The unique reference number for the book.
+*   **Delete**: Users can delete a book from the catalog by clicking the delete button on the list item.
 
 ## 3. Accessing the Application
 The application is web-based and can be accessed via a standard browser.

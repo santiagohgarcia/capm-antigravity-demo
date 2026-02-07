@@ -11,7 +11,7 @@
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-            <List id="booksList" items="{/Books}">
+            <List id="booksList" items="{/Books}" mode="Delete" delete=".onDelete">
                 <ObjectListItem
                     title="{title}"
                     number="{stock}"
