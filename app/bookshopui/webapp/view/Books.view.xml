@@ -1,0 +1,27 @@
+<mvc:View controllerName="bookshopui.controller.Books"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.f"
+    xmlns="sap.m">
+    <f:DynamicPage id="page">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>title}"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <List items="{/Books}">
+                <ObjectListItem
+                    title="{title}"
+                    number="{stock}"
+                    numberUnit="pcs"
+                    type="Active">
+                    <attributes>
+                        <ObjectAttribute text="ID: {ID}" />
+                    </attributes>
+                </ObjectListItem>
+            </List>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
