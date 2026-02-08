@@ -17,6 +17,13 @@ For every book in the list, the following information is immediately available:
 *   **ID**: The unique reference number for the book.
 *   **Delete**: Users can delete a book from the catalog by clicking the delete button on the list item.
 
+### 2.3 Create Book
+Users can add new books to the catalog by clicking the "Create" button. A dialog prompts for the following mandatory details:
+*   **Title**: Required.
+*   **Author**: Required.
+*   **Stock**: Required numeric value.
+*   **Pages**: Required numeric value.
+
 ## 3. Accessing the Application
 The application is web-based and can be accessed via a standard browser.
 *   **Application URL**: `http://localhost:4004/bookshopui/webapp/index.html`

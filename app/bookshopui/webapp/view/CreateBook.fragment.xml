@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+	<Dialog
+		id="createBookDialog"
+		title="{i18n>createBookTitle}">
+		<content>
+            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                <form:content>
+                    <Label text="{i18n>bookTitle}" labelFor="titleInput"/>
+                    <Input id="titleInput" value="{/newBook/title}" required="true"/>
+
+                    <Label text="{i18n>bookAuthor}" labelFor="authorInput"/>
+                    <Input id="authorInput" value="{/newBook/author}" required="true"/>
+
+                    <Label text="{i18n>bookStock}" labelFor="stockInput"/>
+                    <Input id="stockInput" value="{/newBook/stock}" type="Number" required="true"/>
+
+                    <Label text="{i18n>bookPages}" labelFor="pagesInput"/>
+                    <Input id="pagesInput" value="{/newBook/pages}" type="Number" required="true"/>
+                </form:content>
+            </form:SimpleForm>
+		</content>
+		<buttons>
+			<Button text="{i18n>save}" press=".onSave" type="Emphasized" />
+			<Button text="{i18n>cancel}" press=".onCancel" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

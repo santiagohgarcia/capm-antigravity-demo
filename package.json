@@ -22,6 +22,8 @@
   },
   "scripts": {
     "start": "cds-serve",
+    "test:e2e": "npx wdio run ./test/e2e/wdio.conf.js --headless",
+    "test:srv": "npx mocha ./test/srv --exit",
     "test:live": "npx mocha ./test/srv --exit && wdio run ./test/e2e/wdio.conf.js",
     "test": "npx mocha ./test/srv --exit && wdio run ./test/e2e/wdio.conf.js --headless"
   },

@@ -8,6 +8,9 @@
                 <f:heading>
                     <Title text="{i18n>title}"/>
                 </f:heading>
+                <f:actions>
+                    <Button text="{i18n>create}" press=".onCreate" type="Emphasized"/>
+                </f:actions>
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
