@@ -15,14 +15,15 @@
     "@wdio/mocha-framework": "^9.23.3",
     "@wdio/spec-reporter": "^9.23.3",
     "chai": "^4.5.0",
+    "kill-port": "^2.0.1",
     "mocha": "^11.7.5",
     "wait-on": "^9.0.3",
     "wdio-ui5-service": "^3.0.8"
   },
   "scripts": {
     "start": "cds-serve",
-    "test": "wdio run ./test/wdio.conf.js",
-    "test:headless": "wdio run ./test/wdio.conf.js --headless"
+    "test:live": "npx mocha ./test/srv --exit && wdio run ./test/e2e/wdio.conf.js",
+    "test": "npx mocha ./test/srv --exit && wdio run ./test/e2e/wdio.conf.js --headless"
   },
   "private": true
 }
