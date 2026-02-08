@@ -17,7 +17,7 @@
                     number="{stock}"
                     numberUnit="pcs"
                     type="Active">
-                        <ObjectAttribute text="ID: {ID}" />
+                    <attributes>
                         <ObjectAttribute text="Author: {author}" />
                         <ObjectAttribute text="Pages: {pages}" />
                     </attributes>
