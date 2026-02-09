@@ -6,7 +6,29 @@ sap.ui.define([
 
         return Controller.extend("bookshopui.controller.Books", {
             onInit: function () {
+                const oModel = new sap.ui.model.json.JSONModel({
+                    bookCount: 0
+                });
+                this.getView().setModel(oModel, "view");
+                this._refreshBookCount();
+            },
 
+            _refreshBookCount: function () {
+                const oModel = this.getOwnerComponent().getModel();
+                const oViewModel = this.getView().getModel("view");
+
+                // Call the bound function
+                // Since it's an unbound function in the service, we call it via bindContext on the model
+                // actually for unbound function/action in V4:
+                // oModel.bindContext("/getBookCount(...)")
+
+                const oOperation = oModel.bindContext("/getBookCount(...)");
+                oOperation.execute().then(() => {
+                    const iCount = oOperation.getBoundContext().getObject().value;
+                    oViewModel.setProperty("/bookCount", iCount);
+                }).catch((oError) => {
+                    console.error("Error fetching book count", oError);
+                });
             },
 
             onCreate: function () {
@@ -59,6 +81,7 @@ sap.ui.define([
                         oDialog.close();
                         // Refresh logic if needed, but V4 usually handles it or we can refresh binding
                         oBinding.refresh();
+                        this._refreshBookCount();
                     }).catch((oError) => {
                         // Handle error
                         sap.m.MessageToast.show("Error creating book: " + oError.message);
@@ -68,7 +91,9 @@ sap.ui.define([
 
             onDelete: function (oEvent) {
                 const oItem = oEvent.getParameter("listItem");
-                oItem.getBindingContext().delete();
+                oItem.getBindingContext().delete().then(() => {
+                    this._refreshBookCount();
+                });
             }
         });
     });

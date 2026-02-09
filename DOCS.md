@@ -24,6 +24,9 @@ Users can add new books to the catalog by clicking the "Create" button. A dialog
 *   **Stock**: Required numeric value.
 *   **Pages**: Required numeric value.
 
+### 2.4 Book Count Header
+The application header displays the total number of books currently available in the catalog. This count is dynamically updated when books are added or removed.
+
 ## 3. Accessing the Application
 The application is web-based and can be accessed via a standard browser.
 *   **Application URL**: `http://localhost:4004/bookshopui/webapp/index.html`

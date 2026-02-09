@@ -13,6 +13,13 @@
                 </f:actions>
             </f:DynamicPageTitle>
         </f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <f:content>
+                    <ObjectAttribute id="bookCountAttribute" title="Total Books" text="{view>/bookCount}" />
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
         <f:content>
             <List id="booksList" items="{/Books}" mode="Delete" delete=".onDelete">
                 <ObjectListItem

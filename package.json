@@ -21,7 +21,7 @@
     "wdio-ui5-service": "^3.0.8"
   },
   "scripts": {
-    "start": "cds-serve --port 4005",
+    "start": "cds-serve",
     "test:e2e": "npx wdio run ./test/e2e/wdio.conf.js --headless",
     "test:srv": "npx mocha ./test/srv --exit",
     "test:live": "npx mocha ./test/srv --exit && wdio run ./test/e2e/wdio.conf.js",
